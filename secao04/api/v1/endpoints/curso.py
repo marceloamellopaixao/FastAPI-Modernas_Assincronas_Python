@@ -13,7 +13,7 @@ from secao04.schemas.curso_schema import CursoSchema
 from secao04.core.deps import get_session
 
 router = APIRouter()
-
+# Neste arquivo é realizada a separação do roteamento de cada endpoint para que o código não fique bagunçado em somente um arquivo.
 
 # POST Curso (Cria o Curso)
 @router.post(

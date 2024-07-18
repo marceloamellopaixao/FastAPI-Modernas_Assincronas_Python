@@ -31,12 +31,30 @@ Less Than << LT >> Menor do que ...
 Less Than or Equal to << LE >> Menor ou igual a...
 Greater Than << GT >> Maior do que ...
 Greater Than or Equal to << GE >> Maior ou igual a...
+
+variavel: tipo = Path(
+    default=None,
+    title='ID do curso',
+    description='Deve ser entre 1 à 3',
+    gt=0, lt=4
+)
+
+Obs: O Path irá aparecer na documentação, detalhando os parâmetros especificos de cada requisição,
+
+Por exemplo:
+description='Deve ser entre 1 à 3', descreve que só pode retornar id de 1 a 3.
 """
 
 
 @app.get('/cursos/{curso_id}', status_code=status.HTTP_200_OK)
 async def get_curso(
-        curso_id: int = Path(default=None, title='ID do curso', description='Deve ser entre 1 à 3', gt=0, lt=4)):
+        curso_id: int = Path(
+            default=None,
+            title='ID do curso',
+            description='Deve ser entre 1 à 3',
+            gt=0, lt=4
+        )
+):
     try:
         curso = cursos[curso_id]
         return curso

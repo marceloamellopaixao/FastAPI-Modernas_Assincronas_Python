@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 from secao04.core.configs import settings
-from secao04.api.v1.api import api_router
+from secao04.api.v1.api import api_router  # Importa o arquivo onde está o Endpoint (Curso)
 
 app = FastAPI(
     title='Cursos API - FastAPI SQL Alchemy',
@@ -13,7 +13,9 @@ app = FastAPI(
         "email": "marceloamellopaixao@gmail.com"
     },
 )
-app.include_router(api_router, prefix=settings.API_V1_STR)  # Endpoint principal: host/api/v1/:host
+
+# Link da documentação será os seguintes: host:port/docs ou host:port/redoc
+app.include_router(api_router, prefix=settings.API_V1_STR)  # Endpoint principal: host:port/api/v1/
 
 if __name__ == '__main__':
     import uvicorn

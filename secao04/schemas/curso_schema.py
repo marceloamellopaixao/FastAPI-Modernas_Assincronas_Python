@@ -9,6 +9,7 @@ class CursoSchema(SCBaseModel):
     aulas: int
     horas: int
 
+    # Realiza a validação dos dados antes de serem criados e salvos no banco.
     @validator('titulo')
     def validar_titulo(cls, value: str):
         # Validação de Palavra
